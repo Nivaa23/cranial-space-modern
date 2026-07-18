@@ -1,0 +1,476 @@
+.preview-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 40px auto 80px auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+}
+
+/* Card General Styling */
+.preview-card {
+  border-radius: 20px;
+  padding: 24px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.preview-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgba(67, 56, 202, 0.15);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: rgba(67, 56, 202, 0.06);
+  color: var(--primary);
+}
+
+.card-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.card-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background-color: var(--bg-secondary);
+  color: var(--text-muted);
+}
+
+.card-badge.badge-accent {
+  background-color: rgba(14, 165, 233, 0.1);
+  color: var(--accent-sky);
+}
+
+.card-badge.badge-purple {
+  background-color: rgba(168, 85, 247, 0.1);
+  color: var(--accent-purple);
+}
+
+/* Individual Card Placements (Grid-based Collage) */
+
+/* 1. UX Score Card (Top Left) */
+.card-score {
+  grid-column: span 5;
+  min-height: 280px;
+  animation: float-card-1 6s ease-in-out infinite alternate;
+}
+
+.score-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex: 1;
+}
+
+.score-ring-wrapper {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.score-ring-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.score-ring-bg {
+  fill: none;
+  stroke: var(--bg-secondary);
+  stroke-width: 10px;
+}
+
+.score-ring-fg {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 10px;
+  stroke-linecap: round;
+  stroke-dasharray: 251.2; /* 2 * PI * r */
+  stroke-dashoffset: 32.6; /* 87% progress */
+  animation: fill-progress 2s ease-out forwards;
+}
+
+.score-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.score-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.score-stat-item {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.score-stat-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+/* 2. AI Review Card (Top Right / Middle) */
+.card-review {
+  grid-column: span 7;
+  min-height: 280px;
+  animation: float-card-2 6.5s ease-in-out infinite alternate;
+}
+
+.review-content {
+  display: flex;
+  gap: 16px;
+  flex: 1;
+}
+
+.review-visual {
+  flex: 1;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+}
+
+.visual-element {
+  height: 16px;
+  background-color: var(--card-bg);
+  border-radius: 4px;
+}
+
+.visual-element.v-large {
+  height: 48px;
+  border: 2px dashed var(--primary);
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.review-laser {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-sky), transparent);
+  box-shadow: 0 0 8px var(--accent-sky);
+  animation: laser-scan 4s ease-in-out infinite;
+}
+
+.review-feedback-list {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+}
+
+.feedback-bullet {
+  padding: 10px 14px;
+  background-color: var(--bg-primary);
+  border-left: 3px solid var(--accent-sky);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.feedback-bullet span {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* 3. Community Feed Card (Bottom Left) */
+.card-community {
+  grid-column: span 4;
+  min-height: 320px;
+  animation: float-card-3 7s ease-in-out infinite alternate;
+}
+
+.feed-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.feed-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--accent-purple);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.user-role {
+  font-size: 0.6875rem;
+  color: var(--text-dim);
+}
+
+.feed-post-preview {
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  height: 100px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8125rem;
+  font-weight: 550;
+  color: var(--text-muted);
+}
+
+.feed-comment {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background-color: var(--bg-primary);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(9, 9, 11, 0.03);
+}
+
+/* 4. Mentor Spotlight Card (Bottom Middle) */
+.card-mentor {
+  grid-column: span 4;
+  min-height: 320px;
+  animation: float-card-1 7.5s ease-in-out infinite alternate;
+}
+
+.mentor-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  flex: 1;
+  justify-content: center;
+}
+
+.mentor-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.5rem;
+  border: 3px solid #FFFFFF;
+  box-shadow: var(--shadow-sm);
+}
+
+.mentor-name {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.mentor-title {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.mentor-time-slot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(67, 56, 202, 0.05);
+  color: var(--primary);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  margin-top: 4px;
+}
+
+/* 5. Weekly Challenge Card (Bottom Right) */
+.card-challenge {
+  grid-column: span 4;
+  min-height: 320px;
+  animation: float-card-2 8s ease-in-out infinite alternate;
+}
+
+.challenge-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.challenge-main {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.challenge-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.challenge-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.challenge-tracker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 12px;
+}
+
+.challenge-stat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+}
+
+.challenge-btn {
+  margin-top: 16px;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 0.8125rem;
+}
+
+
+/* Animations */
+
+@keyframes fill-progress {
+  from {
+    stroke-dashoffset: 251.2;
+  }
+}
+
+@keyframes laser-scan {
+  0%, 100% {
+    top: 5%;
+  }
+  50% {
+    top: 90%;
+  }
+}
+
+/* Individual Floating Timings & Amplitudes */
+@keyframes float-card-1 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes float-card-2 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+}
+
+@keyframes float-card-3 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px) rotate(-0.5deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .preview-container {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+  }
+  .card-score, .card-review, .card-community, .card-mentor, .card-challenge {
+    grid-column: span 12;
+    min-height: auto;
+  }
+  .review-content {
+    flex-direction: column;
+  }
+}
