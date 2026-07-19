@@ -6,6 +6,7 @@ import '../styles/Navbar.css';
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hoveredIdx, setHoveredIdx] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,12 +39,23 @@ const Navbar = () => {
         </div>
 
         {/* Desktop links */}
-        <ul className="nav-links">
-          {navItems.map((item) => (
-            <li key={item.label}>
+        <ul className="nav-links" onMouseLeave={() => setHoveredIdx(null)}>
+          {navItems.map((item, idx) => (
+            <li 
+              key={item.label}
+              onMouseEnter={() => setHoveredIdx(idx)}
+              style={{ position: 'relative' }}
+            >
               <a href={item.href} className="nav-link">
                 {item.label}
               </a>
+              {hoveredIdx === idx && (
+                <motion.div
+                  layoutId="nav-hover-pill"
+                  className="nav-hover-pill"
+                  transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                />
+              )}
             </li>
           ))}
         </ul>

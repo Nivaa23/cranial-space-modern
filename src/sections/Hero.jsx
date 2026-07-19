@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Play, Compass, Award, Sparkles, Target } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 import { motion } from 'framer-motion';
 import '../styles/Hero.css';
 
@@ -9,18 +9,18 @@ const Hero = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1
+        staggerChildren: 0.08,
+        delayChildren: 0.05
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 15 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+      transition: { type: 'spring', stiffness: 120, damping: 22, mass: 0.6 }
     }
   };
 
@@ -34,51 +34,54 @@ const Hero = () => {
       {/* Dynamic Trust Tag */}
       <motion.div className="hero-trust-tag" variants={itemVariants}>
         <span />
-        AI-Powered UX Reviews Now Active
+        AI-Powered UX Audit Engine v2.0
       </motion.div>
 
       {/* Hero Headline */}
       <motion.h1 className="hero-headline" variants={itemVariants}>
-        Where Product Designers <br />
-        <span className="gradient-text">Scale Their Instincts</span>
+        The Sandbox for <br />
+        <span className="gradient-text">Uncompromising Craft</span>
       </motion.h1>
 
       {/* Hero Subtitle */}
       <motion.p className="hero-subtitle" variants={itemVariants}>
-        Stop designing in a vacuum. Receive instant AI-powered UX reviews, benchmark your progress with a dynamic UX Score, enter weekly design challenges, and master your craft alongside senior industry mentors.
+        Stop designing in a vacuum. Cranial Space is a premium platform for product designers. Benchmark your screens with sub-second AI usability feedback, master nuances in weekly challenges, and lead design decisions alongside principal industry mentors.
       </motion.p>
 
       {/* Hero Actions */}
       <motion.div className="hero-actions" variants={itemVariants}>
         <button className="btn btn-primary">
-          Join the Community
+          Join the Ecosystem
           <ArrowRight size={16} />
         </button>
         <button className="btn btn-secondary">
-          <Play size={14} fill="currentColor" />
-          Watch How It Works
+          <Play size={12} fill="currentColor" style={{ marginRight: '2px' }} />
+          Inspect Sandbox
         </button>
       </motion.div>
 
-      {/* Trust Indicator Logos */}
-      <motion.div className="hero-trust-logos" variants={itemVariants}>
-        <span className="trust-title">Trusted by designers at forward-thinking companies</span>
-        <div className="logos-container">
-          <div className="trust-logo">
-            <Target size={16} />
-            Linear
+      {/* Trust Indicator Metrics Dashboard */}
+      <motion.div className="hero-metrics-dashboard" variants={itemVariants}>
+        <span className="metrics-title">Platform Ecosystem Activity</span>
+        <div className="metrics-grid">
+          <div className="metric-item">
+            <span className="metric-value">14,280+</span>
+            <span className="metric-label">Designers Growing</span>
           </div>
-          <div className="trust-logo">
-            <Sparkles size={16} />
-            Stripe
+          <div className="metric-line-divider" />
+          <div className="metric-item">
+            <span className="metric-value">1.4M+</span>
+            <span className="metric-label">AI UX Audits Run</span>
           </div>
-          <div className="trust-logo">
-            <Award size={16} />
-            Vercel
+          <div className="metric-line-divider" />
+          <div className="metric-item">
+            <span className="metric-value">99.4%</span>
+            <span className="metric-label">Review Satisfaction</span>
           </div>
-          <div className="trust-logo">
-            <Compass size={16} />
-            Framer
+          <div className="metric-line-divider" />
+          <div className="metric-item">
+            <span className="metric-value">Weekly</span>
+            <span className="metric-label">Design Sprints</span>
           </div>
         </div>
       </motion.div>

@@ -1,0 +1,342 @@
+.journey-section {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 80px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  background: #080b12; /* Deep charcoal/blue-black backdrop */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 36px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25), 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.journey-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-header-editorial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  z-index: 2;
+}
+
+.journey-section .section-kicker {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.journey-section .section-title-large {
+  color: #ffffff;
+}
+
+.journey-timeline-container {
+  position: relative;
+  width: 100%;
+  height: 560px; /* Increased height to give plenty of breathing room */
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  margin-top: 20px;
+}
+
+/* Connecting Horizontal Timeline Line - Softly Glowing */
+.journey-horizontal-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.06);
+  z-index: 1;
+}
+
+.journey-line-progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--accent-purple), var(--accent-sky));
+  box-shadow: 0 0 12px rgba(79, 70, 229, 0.5), 0 0 4px rgba(79, 70, 229, 0.3);
+}
+
+.journey-steps-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+/* absolute positioning with dynamic spacing coordinates */
+.journey-step-node {
+  position: absolute;
+  width: 155px; /* Symmetrical, comfortable card width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+
+.journey-step-node.node-up {
+  bottom: 50%;
+  transform: translateX(-50%) translateZ(0);
+  transform-origin: center bottom;
+}
+
+.journey-step-node.node-down {
+  top: 50%;
+  transform: translateX(-50%) translateZ(0);
+  transform-origin: center top;
+}
+
+/* Floating step number always visible above the cards */
+.step-counter-floating {
+  font-family: monospace;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  z-index: 5;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Connecting Vertical Link Lines to Timeline - Clear, Elegant, Symmetrical */
+.step-link-line {
+  width: 1px;
+  height: 48px; /* Elegant consistent gap */
+  position: relative;
+  transition: background 0.4s ease;
+}
+
+.line-up {
+  background: linear-gradient(to top, rgba(79, 70, 229, 0.4) 0%, rgba(255, 255, 255, 0.01) 100%);
+}
+
+.line-down {
+  background: linear-gradient(to bottom, rgba(79, 70, 229, 0.4) 0%, rgba(255, 255, 255, 0.01) 100%);
+  margin-bottom: 8px;
+}
+
+.step-link-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #080b12;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  left: 50%;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.line-up .step-link-dot {
+  bottom: 0;
+  transform: translate(-50%, 50%) scale(1);
+}
+
+.line-down .step-link-dot {
+  top: 0;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Dim & Highlight Transitions */
+.journey-step-node.is-dimmed {
+  opacity: 0.35;
+  filter: blur(0.6px) grayscale(30%);
+}
+
+.journey-step-node.is-hovered {
+  opacity: 1;
+  filter: none;
+  z-index: 30;
+}
+
+.journey-step-node.node-up.is-hovered {
+  transform: translateX(-50%) scale(1.06) translateY(-6px) translateZ(20px) !important;
+}
+
+.journey-step-node.node-down.is-hovered {
+  transform: translateX(-50%) scale(1.06) translateY(6px) translateZ(20px) !important;
+}
+
+/* Glow line path on hovered node */
+.journey-step-node.is-hovered .step-link-line {
+  background: var(--primary);
+}
+
+.journey-step-node.is-hovered .step-link-dot {
+  background-color: var(--primary);
+  box-shadow: 0 0 10px var(--primary), 0 0 3px var(--primary);
+  border-color: #ffffff;
+}
+
+.journey-step-node.node-up.is-hovered .step-link-dot {
+  transform: translate(-50%, 50%) scale(1.4);
+}
+
+.journey-step-node.node-down.is-hovered .step-link-dot {
+  transform: translate(-50%, -50%) scale(1.4);
+}
+
+/* Timeline Card Panel - Dark Glassmorphism */
+.journey-step-card {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: border-color 0.4s, box-shadow 0.4s, background 0.4s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transform-style: preserve-3d;
+}
+
+.journey-step-node.is-hovered .journey-step-card {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(79, 70, 229, 0.35);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35),
+              0 10px 20px rgba(79, 70, 229, 0.08),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.step-icon-wrapper {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #818cf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-card-title {
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.015em;
+}
+
+.step-card-desc {
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  color: #94a3b8;
+}
+
+/* Sub-detail elements inside card */
+.step-card-extra {
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin-top: 6px;
+  padding-top: 6px;
+}
+
+.step-extra-text {
+  font-size: 0.625rem;
+  line-height: 1.35;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+/* Mobile Responsive Timeline styling */
+@media (max-width: 990px) {
+  .journey-section {
+    padding: 60px 24px;
+    border-radius: 28px;
+  }
+
+  .journey-timeline-container {
+    height: auto;
+    padding-left: 28px;
+    margin-left: 12px;
+    border-left: 2px solid rgba(255, 255, 255, 0.06);
+    background: transparent;
+    padding-right: 0;
+    margin-top: 0;
+  }
+  
+  .journey-horizontal-line {
+    display: none;
+  }
+  
+  .journey-steps-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    height: auto;
+    width: 100%;
+    padding: 20px 0;
+  }
+  
+  .journey-step-node {
+    position: relative !important;
+    bottom: auto !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    transform: none !important;
+    flex-direction: row-reverse !important;
+    justify-content: flex-end;
+    gap: 16px;
+  }
+  
+  .step-link-line {
+    display: none;
+  }
+  
+  .step-counter-floating {
+    margin: 0 !important;
+    align-self: center;
+  }
+
+  /* Mobile bullet links on timeline left border */
+  .journey-step-node::before {
+    content: '';
+    position: absolute;
+    left: -33px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #080b12;
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 6px rgba(79, 70, 229, 0.3);
+    z-index: 10;
+    transition: all 0.3s;
+  }
+  
+  .journey-step-node.is-hovered::before {
+    background-color: var(--primary);
+    transform: translateY(-50%) scale(1.3);
+    box-shadow: 0 0 10px var(--primary);
+    border-color: #ffffff;
+  }
+  
+  .journey-step-card {
+    max-width: 480px;
+  }
+}
