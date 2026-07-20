@@ -36,6 +36,7 @@
 
 .section-title-large .gradient-text {
   background: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 60%, var(--accent-sky) 100%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

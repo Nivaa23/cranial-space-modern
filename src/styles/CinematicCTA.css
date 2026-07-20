@@ -1,0 +1,238 @@
+/* ==========================================================================
+   Light-Theme Cinematic CTA Stylesheet
+   ========================================================================== */
+
+.cinematic-cta-section {
+  position: relative;
+  padding: 120px 48px;
+  border-radius: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: #09041a;
+  /* Clean dark canvas */
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+  margin-top: 40px;
+  /* Comfort space from dark statistics section */
+  margin-bottom: 40px;
+}
+
+.cta-cinematic-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #09041a;
+  z-index: 0;
+}
+
+/* Soft ambient lighting (subtle purple and blue glows) */
+.nebula-glow-1 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: -200px;
+  left: -200px;
+  background: radial-gradient(circle, rgba(129, 140, 248, 0.07) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  animation: floatNebula1Light 25s infinite alternate ease-in-out;
+}
+
+.nebula-glow-2 {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  bottom: -250px;
+  right: -250px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.06) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  animation: floatNebula2Light 30s infinite alternate ease-in-out;
+}
+
+@keyframes floatNebula1Light {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate(60px, 40px) scale(1.05);
+  }
+}
+
+@keyframes floatNebula2Light {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate(-60px, -40px) scale(1.05);
+  }
+}
+
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(circle, #ffffff 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle, #ffffff 30%, transparent 80%);
+  pointer-events: none;
+}
+
+.cta-content-wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.cta-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 40px;
+  font-family: monospace;
+  font-size: 0.72rem;
+  color: #000000;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.sparkle-spinning {
+  color: #000000;
+  animation: spinSparkleLight 6s infinite linear;
+}
+
+@keyframes spinSparkleLight {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.cta-title {
+  font-size: 2.85rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+}
+
+.cta-title .gradient-text {
+  background: none;
+  background-clip: unset;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  color: #ffffff;
+}
+
+.cta-description {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.cta-button-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.cta-btn {
+  padding: 14px 28px;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+.cta-primary-glow {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.cta-primary-glow:hover {
+  background: #818cf8;
+  border-color: #818cf8;
+  color: #ffffff;
+  box-shadow: 0 15px 30px rgba(129, 140, 248, 0.45);
+  transform: translateY(-3px);
+}
+
+.cta-secondary-glass {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+}
+
+.cta-secondary-glass:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .cinematic-cta-section {
+    padding: 100px 32px;
+  }
+
+  .cta-title {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .cinematic-cta-section {
+    padding: 80px 24px;
+    border-radius: 28px;
+  }
+
+  .cta-title {
+    font-size: 1.85rem;
+  }
+
+  .cta-button-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

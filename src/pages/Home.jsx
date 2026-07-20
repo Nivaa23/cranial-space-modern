@@ -3,8 +3,11 @@ import Hero from '../sections/Hero';
 import ProductPreview from '../sections/ProductPreview';
 import Problem from '../sections/Problem';
 import WhyCranialSpace from '../sections/WhyCranialSpace';
+import InteractiveShowcase from '../sections/InteractiveShowcase';
 import GrowthJourney from '../sections/GrowthJourney';
 import EcosystemVisual from '../sections/EcosystemVisual';
+import TrustConversion from '../sections/TrustConversion';
+import CinematicCTA from '../sections/CinematicCTA';
 
 const Home = () => {
   return (
@@ -13,8 +16,11 @@ const Home = () => {
       <ProductPreview />
       <Problem />
       <WhyCranialSpace />
+      <InteractiveShowcase />
       <GrowthJourney />
       <EcosystemVisual />
+      <TrustConversion />
+      <CinematicCTA />
     </div>
   );
 };

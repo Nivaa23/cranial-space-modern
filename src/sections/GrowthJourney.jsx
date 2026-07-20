@@ -93,16 +93,17 @@ const GrowthJourney = () => {
             const isHovered = hoveredStep === step.num;
             const isDimmed = hoveredStep !== null && hoveredStep !== step.num;
 
-            // Compute exact horizontal position (6% to 94%)
-            const leftPct = 6 + idx * 14.67;
+            // Compute exact horizontal position (10% to 90%)
+            const leftPct = 10 + idx * 13.333;
 
             return (
               <motion.div 
                 key={step.num}
                 className={`journey-step-node node-${step.pos} ${isHovered ? 'is-hovered' : ''} ${isDimmed ? 'is-dimmed' : ''}`}
                 style={{ left: `${leftPct}%` }}
-                initial={{ opacity: 0, y: isUp ? -30 : 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: isUp ? -30 : 30, x: "-50%", scale: 1 }}
+                whileInView={{ opacity: 1, y: 0, x: "-50%" }}
+                whileHover={{ scale: 1.05, y: isUp ? -6 : 6, x: "-50%" }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.6, delay: idx * 0.06, type: "spring", stiffness: 90, damping: 15 }}
                 onMouseEnter={() => setHoveredStep(step.num)}

@@ -51,6 +51,7 @@
 
 .hero-headline span.gradient-text {
   background: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 50%, var(--accent-sky) 100%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

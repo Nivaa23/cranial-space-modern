@@ -48,19 +48,18 @@
   position: relative;
   width: 100%;
   height: 560px; /* Increased height to give plenty of breathing room */
-  display: flex;
-  align-items: center;
+  display: block; /* Removed flex layout to guarantee absolute children width accuracy */
   z-index: 2;
   margin-top: 20px;
 }
 
-/* Connecting Horizontal Timeline Line - Softly Glowing */
+/* Connecting Horizontal Timeline Line - Anchored perfectly between 10% and 90% centers */
 .journey-horizontal-line {
   position: absolute;
   top: 50%;
-  left: 0;
+  left: 10%;
   transform: translateY(-50%);
-  width: 100%;
+  width: 80%;
   height: 2px;
   background-color: rgba(255, 255, 255, 0.06);
   z-index: 1;
@@ -261,8 +260,29 @@
   font-weight: 600;
 }
 
-/* Mobile Responsive Timeline styling */
-@media (max-width: 990px) {
+/* TABLET RESPONSIVE TIMELINE */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .journey-step-node {
+    width: 120px; /* Reduced width to prevent collisions */
+  }
+  .step-card-title {
+    font-size: 0.75rem;
+  }
+  .step-card-desc {
+    font-size: 0.625rem;
+    line-height: 1.35;
+  }
+  .journey-timeline-container {
+    height: 480px;
+  }
+  .journey-horizontal-line {
+    left: 10%;
+    width: 80%;
+  }
+}
+
+/* MOBILE RESPONSIVE TIMELINE (Alternating vertical) */
+@media (max-width: 767px) {
   .journey-section {
     padding: 60px 24px;
     border-radius: 28px;
@@ -270,73 +290,126 @@
 
   .journey-timeline-container {
     height: auto;
-    padding-left: 28px;
-    margin-left: 12px;
-    border-left: 2px solid rgba(255, 255, 255, 0.06);
-    background: transparent;
-    padding-right: 0;
-    margin-top: 0;
+    margin-top: 20px;
+    padding: 20px 0;
   }
   
+  /* Convert horizontal line to central vertical line */
   .journey-horizontal-line {
-    display: none;
+    left: 50%;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.06);
   }
   
   .journey-steps-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 40px;
     height: auto;
     width: 100%;
-    padding: 20px 0;
+    padding: 0;
   }
   
   .journey-step-node {
     position: relative !important;
-    bottom: auto !important;
-    top: auto !important;
     left: auto !important;
+    top: auto !important;
+    bottom: auto !important;
     width: 100% !important;
     transform: none !important;
-    flex-direction: row-reverse !important;
-    justify-content: flex-end;
-    gap: 16px;
-  }
-  
-  .step-link-line {
-    display: none;
-  }
-  
-  .step-counter-floating {
-    margin: 0 !important;
-    align-self: center;
+    display: flex;
+    align-items: center;
+    transition: opacity 0.3s;
   }
 
-  /* Mobile bullet links on timeline left border */
+  /* Node Up (Odd milestones) - Aligned to Left */
+  .journey-step-node.node-up {
+    padding-right: 55%;
+    padding-left: 0;
+    text-align: right;
+    justify-content: flex-end;
+  }
+  
+  .journey-step-node.node-up .journey-step-card {
+    align-items: flex-end;
+  }
+
+  .journey-step-node.node-up .step-badge-row {
+    justify-content: flex-end;
+    width: 100%;
+    display: flex;
+  }
+
+  /* Node Down (Even milestones) - Aligned to Right */
+  .journey-step-node.node-down {
+    padding-left: 55%;
+    padding-right: 0;
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .journey-step-node.node-down .journey-step-card {
+    align-items: flex-start;
+  }
+
+  .journey-step-node.node-down .step-badge-row {
+    justify-content: flex-start;
+    width: 100%;
+    display: flex;
+  }
+
+  .step-link-line {
+    display: none; /* Hide desktop lines */
+  }
+
+  /* Symmetrical central bullet point */
   .journey-step-node::before {
     content: '';
     position: absolute;
-    left: -33px;
+    left: 50%;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%) scale(1);
     width: 8px;
     height: 8px;
     border-radius: 50%;
     background-color: #080b12;
     border: 2px solid var(--primary);
-    box-shadow: 0 0 6px rgba(79, 70, 229, 0.3);
+    box-shadow: 0 0 8px rgba(79, 70, 229, 0.4);
     z-index: 10;
-    transition: all 0.3s;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
   
   .journey-step-node.is-hovered::before {
     background-color: var(--primary);
-    transform: translateY(-50%) scale(1.3);
-    box-shadow: 0 0 10px var(--primary);
+    transform: translate(-50%, -50%) scale(1.4);
+    box-shadow: 0 0 12px var(--primary);
     border-color: #ffffff;
   }
   
   .journey-step-card {
-    max-width: 480px;
+    max-width: 260px;
+    width: 100%;
+  }
+
+  .step-counter-floating {
+    margin: 0 8px !important;
+    position: absolute;
+    top: -12px;
+  }
+
+  .journey-step-node.node-up .step-counter-floating {
+    right: 55%;
+  }
+
+  .journey-step-node.node-down .step-counter-floating {
+    left: 55%;
+  }
+
+  /* Prevent hover scale translate overrides on mobile */
+  .journey-step-node.is-hovered {
+    transform: scale(1.02) !important;
   }
 }
