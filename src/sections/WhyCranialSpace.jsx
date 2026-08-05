@@ -5,8 +5,8 @@ import BorderGlow from '../components/BorderGlow';
 import '../styles/WhyCranialSpace.css';
 
 const WhyCranialSpace = () => {
-  const glowColors = ['#5227FF', '#6366f1', '#3b82f6'];
-  const glowHSL = '252 80 65';
+  const glowColors = ['#7C3AED', '#A855F7', '#3B82F6'];
+  const glowHSL = '258 89 60';
 
   return (
     <section className="why-section" id="why-us">
@@ -36,7 +36,7 @@ const WhyCranialSpace = () => {
             backgroundColor="var(--card-bg)"
             borderRadius={28}
             glowRadius={40}
-            glowIntensity={0.7}
+            glowIntensity={1.0}
             colors={glowColors}
           >
             <div className="bento-card-content">
@@ -90,7 +90,7 @@ const WhyCranialSpace = () => {
             backgroundColor="var(--card-bg)"
             borderRadius={28}
             glowRadius={40}
-            glowIntensity={0.7}
+            glowIntensity={1.0}
             colors={glowColors}
           >
             <div className="bento-card-content">
@@ -137,7 +137,7 @@ const WhyCranialSpace = () => {
             backgroundColor="var(--card-bg)"
             borderRadius={28}
             glowRadius={40}
-            glowIntensity={0.7}
+            glowIntensity={1.0}
             colors={glowColors}
           >
             <div className="bento-card-content">
@@ -182,7 +182,7 @@ const WhyCranialSpace = () => {
             backgroundColor="var(--card-bg)"
             borderRadius={28}
             glowRadius={40}
-            glowIntensity={0.7}
+            glowIntensity={1.0}
             colors={glowColors}
           >
             <div className="bento-card-content">
@@ -233,7 +233,7 @@ const WhyCranialSpace = () => {
             backgroundColor="var(--card-bg)"
             borderRadius={28}
             glowRadius={40}
-            glowIntensity={0.7}
+            glowIntensity={1.0}
             colors={glowColors}
           >
             <div className="bento-card-content">
@@ -275,7 +275,7 @@ const WhyCranialSpace = () => {
             backgroundColor="var(--card-bg)"
             borderRadius={28}
             glowRadius={40}
-            glowIntensity={0.7}
+            glowIntensity={1.0}
             colors={glowColors}
           >
             <div className="bento-card-content">

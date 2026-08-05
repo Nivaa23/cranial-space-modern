@@ -30,6 +30,9 @@ function buildGradientVars(colors) {
     vars[GRADIENT_KEYS[i]] = `radial-gradient(at ${GRADIENT_POSITIONS[i]}, ${c} 0px, transparent 50%)`;
   }
   vars['--gradient-base'] = `linear-gradient(${colors[0]} 0 100%)`;
+  colors.forEach((c, idx) => {
+    vars[`--color-${idx}`] = c;
+  });
   return vars;
 }
 
