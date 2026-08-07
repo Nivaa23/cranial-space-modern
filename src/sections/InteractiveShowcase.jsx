@@ -274,19 +274,39 @@ const InteractiveShowcase = () => {
       <div 
         ref={sliderRef}
         className="comparison-slider-container glass-panel"
+        onMouseDown={(e) => handleSliderMove(e.clientX)}
         onMouseMove={handleMouseMove}
         onTouchMove={handleTouchMove}
       >
+        {/* Persistent Side Labels */}
+        <div 
+          className="persistent-side-label left-side-label"
+          style={{ opacity: sliderPosition > 15 ? 1 : 0 }}
+        >
+          <span className="side-tag before-tag">BEFORE</span>
+          <span className="side-title">Raw Design</span>
+          <span className="side-subtitle">Without Cranial Space</span>
+        </div>
+        
+        <div 
+          className="persistent-side-label right-side-label"
+          style={{ opacity: sliderPosition < 85 ? 1 : 0 }}
+        >
+          <span className="side-tag after-tag">AFTER</span>
+          <span className="side-title">Improved Design</span>
+          <span className="side-subtitle">With Cranial Space</span>
+        </div>
+
         {/* Left Side: Original Design */}
         <div className="slider-view original-view">
           <div className="slider-design-mockup original-mock">
-            <div className="inner-mockup-content">
-              <span className="mockup-kicker text-red">Draft Layout (Original)</span>
-              <h4 className="mockup-headline">Instinct dashboard tool for teams</h4>
-              <p className="mockup-paragraph">
+            <div className="inner-mockup-content original-content">
+              <span className="mockup-kicker kicker-before">draft-layout-01_v2</span>
+              <h4 className="mockup-headline headline-before">Instinct dashboard tool for teams</h4>
+              <p className="mockup-paragraph paragraph-before">
                 Get immediate heuristics audits. We help product designers grow with better reviews.
               </p>
-              <div className="mockup-btn-primary original-btn">
+              <div className="mockup-btn-primary button-before">
                 <span>Sign Up Now</span>
               </div>
             </div>
@@ -299,13 +319,13 @@ const InteractiveShowcase = () => {
           style={{ clipPath: `polygon(${sliderPosition}% 0, 100% 0, 100% 100%, ${sliderPosition}% 100%)` }}
         >
           <div className="slider-design-mockup improved-mock">
-            <div className="inner-mockup-content">
-              <span className="mockup-kicker text-indigo">Audited Layout (Improved)</span>
-              <h4 className="mockup-headline font-bold">Instinct dashboard built for elite teams.</h4>
-              <p className="mockup-paragraph">
-                Get immediate heuristics audits, sandbox annotations, and vetting critiques.
+            <div className="inner-mockup-content improved-content">
+              <span className="mockup-kicker kicker-after">✓ Cranial Space Optimized</span>
+              <h4 className="mockup-headline headline-after">Instinct dashboard built for elite design teams.</h4>
+              <p className="mockup-paragraph paragraph-after">
+                Deploy instant heuristics reviews, align layout grids, and track team-wide usability growth on one unified dashboard.
               </p>
-              <div className="mockup-btn-primary improved-btn">
+              <div className="mockup-btn-primary button-after">
                 <span>Get Started Free</span>
                 <ArrowRight size={14} />
               </div>
@@ -319,6 +339,17 @@ const InteractiveShowcase = () => {
           style={{ left: `${sliderPosition}%` }}
         >
           <div className="handle-line" />
+          <div className="handle-floating-badge">
+            <span className="badge-arrow">←</span>
+            <span>
+              {sliderPosition > 75 
+                ? "Drag left to reveal improvements" 
+                : sliderPosition < 25 
+                  ? "Cranial Space Optimized" 
+                  : "Drag to compare"}
+            </span>
+            <span className="badge-arrow">→</span>
+          </div>
           <div className="handle-button">
             <ChevronRight size={14} className="arrow-left" />
             <ChevronRight size={14} className="arrow-right" />
@@ -326,21 +357,37 @@ const InteractiveShowcase = () => {
           <div className="handle-line" />
         </div>
 
-        {/* Floating Callout Anchors */}
-        <div className="slider-callout callout-contrast" style={{ left: '80%', top: '65%', opacity: sliderPosition < 80 ? 1 : 0 }}>
-          <div className="callout-dot" />
-          <div className="callout-box">
-            <span className="callout-title">AAA Contrast Upgrade</span>
-            <span className="callout-text">Contrast increased from 2.8:1 to 6.2:1</span>
-          </div>
+        {/* Floating Callout Anchors (Visible only on revealed AFTER side) */}
+        <div 
+          className={`comparison-badge badge-spacing ${sliderPosition < 24 ? 'revealed' : ''}`}
+          style={{ left: '24%', top: '22%' }}
+        >
+          <div className="badge-pulse-dot" />
+          <span className="badge-text">✓ Better Spacing</span>
         </div>
 
-        <div className="slider-callout callout-spacing" style={{ left: '25%', top: '25%', opacity: sliderPosition > 25 ? 1 : 0 }}>
-          <div className="callout-dot" />
-          <div className="callout-box">
-            <span className="callout-title">Typographic Scale</span>
-            <span className="callout-text">Increased visual hierarchy between header and paragraph text.</span>
-          </div>
+        <div 
+          className={`comparison-badge badge-hierarchy ${sliderPosition < 44 ? 'revealed' : ''}`}
+          style={{ left: '44%', top: '38%' }}
+        >
+          <div className="badge-pulse-dot" />
+          <span className="badge-text">✓ Improved Visual Hierarchy</span>
+        </div>
+
+        <div 
+          className={`comparison-badge badge-typography ${sliderPosition < 64 ? 'revealed' : ''}`}
+          style={{ left: '64%', top: '74%' }}
+        >
+          <div className="badge-pulse-dot" />
+          <span className="badge-text">✓ Better Typography</span>
+        </div>
+
+        <div 
+          className={`comparison-badge badge-contrast ${sliderPosition < 82 ? 'revealed' : ''}`}
+          style={{ left: '82%', top: '58%' }}
+        >
+          <div className="badge-pulse-dot" />
+          <span className="badge-text">✓ Accessible CTA</span>
         </div>
 
       </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import '../styles/Navbar.css';
 
 const Navbar = () => {
@@ -22,21 +23,21 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { label: 'Product', href: '#product' },
-    { label: 'Features', href: '#features' },
-    { label: 'Community', href: '#community' },
-    { label: 'Mentorship', href: '#mentorship' },
-    { label: 'Resources', href: '#resources' },
-    { label: 'Pricing', href: '#pricing' }
+    { label: 'Product', href: '/product' },
+    { label: 'Features', href: '/#features' },
+    { label: 'Community', href: '/#community' },
+    { label: 'Mentorship', href: '/#mentorship' },
+    { label: 'Resources', href: '/#resources' },
+    { label: 'Pricing', href: '/#pricing' }
   ];
 
   return (
     <>
       <nav className={`navbar-wrapper glass-panel ${scrolled ? 'scrolled' : ''}`}>
-        <div className="nav-logo">
+        <Link to="/" className="nav-logo">
           <div className="logo-icon">C</div>
           <span>Cranial Space</span>
-        </div>
+        </Link>
 
         {/* Desktop links */}
         <ul className="nav-links" onMouseLeave={() => setHoveredIdx(null)}>
@@ -46,9 +47,15 @@ const Navbar = () => {
               onMouseEnter={() => setHoveredIdx(idx)}
               style={{ position: 'relative' }}
             >
-              <a href={item.href} className="nav-link">
-                {item.label}
-              </a>
+              {item.href.startsWith('/#') ? (
+                <a href={item.href} className="nav-link">
+                  {item.label}
+                </a>
+              ) : (
+                <Link to={item.href} className="nav-link">
+                  {item.label}
+                </Link>
+              )}
               {hoveredIdx === idx && (
                 <motion.div
                   layoutId="nav-hover-pill"
@@ -97,13 +104,23 @@ const Navbar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.05 * idx }}
                 >
-                  <a 
-                    href={item.href} 
-                    className="mobile-menu-link"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </a>
+                  {item.href.startsWith('/#') ? (
+                    <a 
+                      href={item.href} 
+                      className="mobile-menu-link"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link 
+                      to={item.href} 
+                      className="mobile-menu-link"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
                 </motion.li>
               ))}
             </ul>
