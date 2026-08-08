@@ -1,0 +1,793 @@
+/* FEATURES PAGE - INTERACTIVE DESIGN SYSTEM STYLES */
+
+.features-page-container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  padding-bottom: 140px;
+}
+
+/* GLOBAL SECTION HEADER (VARIED RHYTHM) */
+.feat-section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 50px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.feat-section-tag {
+  font-family: monospace;
+  font-size: 0.75rem;
+  font-weight: 850;
+  color: var(--primary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(124, 58, 237, 0.08);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(124, 58, 237, 0.15);
+}
+
+.feat-section-title {
+  font-size: 2.6rem;
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  color: var(--text-primary);
+}
+
+.feat-section-desc {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #7C3AED 0%, #3B82F6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================================================
+   1. HERO SECTION: INTERACTIVE FIGMA-LIKE STUDIO CANVAS
+   ========================================================= */
+.feat-studio-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+  gap: 36px;
+  position: relative;
+}
+
+.feat-hero-intro {
+  text-align: center;
+  max-width: 820px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.feat-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(124, 58, 237, 0.08);
+  color: #7C3AED;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  border: 1px solid rgba(124, 58, 237, 0.16);
+}
+
+.badge-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #7C3AED;
+  box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.5);
+  animation: feat-pulse 2s infinite;
+}
+
+@keyframes feat-pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(124, 58, 237, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(124, 58, 237, 0); }
+}
+
+.feat-hero-title {
+  font-size: 3.8rem;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+}
+
+.feat-hero-desc {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: 660px;
+}
+
+.feat-hero-cta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+/* Studio Canvas Simulator */
+.studio-canvas-workspace {
+  width: 100%;
+  border-radius: 28px;
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.canvas-toolbar-top {
+  height: 48px;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.canvas-file-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.78rem;
+  font-weight: 750;
+  color: var(--text-secondary);
+}
+
+.tool-selector-group {
+  display: flex;
+  background: rgba(15, 23, 42, 0.04);
+  padding: 3px;
+  border-radius: 10px;
+  gap: 4px;
+}
+
+.tool-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 7px;
+  border: none;
+  background: transparent;
+  font-size: 0.72rem;
+  font-weight: 750;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.tool-btn.active {
+  background: #ffffff;
+  color: var(--primary);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.canvas-zoom-badge {
+  font-family: monospace;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  background: rgba(15, 23, 42, 0.04);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.canvas-viewport-grid {
+  height: 380px;
+  position: relative;
+  background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.canvas-floating-artboard {
+  width: 580px;
+  height: 290px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.artboard-laser-scan {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #7C3AED, #3B82F6, transparent);
+  box-shadow: 0 0 12px #7C3AED;
+  animation: laser-anim 3s infinite ease-in-out;
+}
+
+@keyframes laser-anim {
+  0%, 100% { top: 6%; }
+  50% { top: 92%; }
+}
+
+.canvas-annotation-pin {
+  position: absolute;
+  background: #0f172a;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  z-index: 10;
+  animation: float-pin 3s ease-in-out infinite alternate;
+}
+
+.canvas-annotation-pin.warning {
+  background: #d97706;
+}
+
+@keyframes float-pin {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-4px); }
+}
+
+.canvas-status-footer {
+  height: 40px;
+  background: #ffffff;
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  font-size: 0.72rem;
+  font-weight: 750;
+  color: var(--text-muted);
+}
+
+/* =========================================================
+   2. BENTO GRID ARCHITECTURE (NO REPEATING ALTERNATING BLOCKS)
+   ========================================================= */
+.bento-features-section {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.bento-grid-master {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+}
+
+.bento-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 26px;
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium), border-color var(--transition-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: rgba(124, 58, 237, 0.3);
+}
+
+/* Bento Column Spans */
+.span-8 { grid-column: span 8; }
+.span-4 { grid-column: span 4; }
+.span-6 { grid-column: span 6; }
+.span-12 { grid-column: span 12; }
+
+/* Bento Internal Typography */
+.bento-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.bento-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+}
+
+.bento-icon-box.purple { background: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%); }
+.bento-icon-box.blue { background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%); }
+.bento-icon-box.green { background: linear-gradient(135deg, #10B981 0%, #34D399 100%); }
+.bento-icon-box.red { background: linear-gradient(135deg, #EF4444 0%, #F87171 100%); }
+.bento-icon-box.sky { background: linear-gradient(135deg, #0EA5E9 0%, #38BDF8 100%); }
+.bento-icon-box.orange { background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); }
+.bento-icon-box.indigo { background: linear-gradient(135deg, #4F46E5 0%, #818CF8 100%); }
+.bento-icon-box.pink { background: linear-gradient(135deg, #EC4899 0%, #F472B6 100%); }
+
+.bento-pill-tag {
+  font-family: monospace;
+  font-size: 0.68rem;
+  font-weight: 850;
+  color: var(--primary);
+  background: rgba(124, 58, 237, 0.08);
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(124, 58, 237, 0.15);
+}
+
+.bento-title {
+  font-size: 1.65rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.bento-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.bento-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.bento-bullets li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.bento-bullet-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+/* Sub-Components within Bento Cards */
+.bento-interactive-stage {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.bento-submetric-selector {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.submetric-tab-pill {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  background: rgba(15, 23, 42, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition-fast);
+}
+
+.submetric-tab-pill.active {
+  border-color: #7C3AED;
+  background: rgba(124, 58, 237, 0.05);
+}
+
+.submetric-tab-pill span {
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  font-weight: 750;
+}
+
+.submetric-tab-pill strong {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 850;
+}
+
+/* =========================================================
+   3. INTERACTIVE TIMELINE WORKFLOW PIPELINE
+   ========================================================= */
+.workflow-pipeline-section {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.pipeline-track-wrapper {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 28px;
+  padding: 36px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.pipeline-nodes-bar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  position: relative;
+}
+
+.pipeline-nodes-bar::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  right: 30px;
+  height: 2px;
+  background: linear-gradient(90deg, #7C3AED, #3B82F6);
+  z-index: 1;
+}
+
+.pipeline-node-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.node-circle-indicator {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid rgba(124, 58, 237, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 850;
+  color: var(--text-muted);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.pipeline-node-btn.active .node-circle-indicator {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  box-shadow: 0 0 14px rgba(124, 58, 237, 0.4);
+  transform: scale(1.15);
+}
+
+.pipeline-node-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--text-secondary);
+}
+
+.pipeline-node-btn.active .pipeline-node-label {
+  color: var(--primary);
+}
+
+.pipeline-interactive-display {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 36px;
+  align-items: center;
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 20px;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+/* =========================================================
+   4. MODULAR STUDIO DASHBOARD (FULL-WIDTH IMMERSIVE)
+   ========================================================= */
+.feat-studio-dash-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.studio-dash-shell {
+  width: 100%;
+  border-radius: 30px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 540px;
+}
+
+.studio-sidebar {
+  background: rgba(15, 23, 42, 0.015);
+  border-right: 1px solid rgba(15, 23, 42, 0.06);
+  padding: 28px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar-brand-strip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 900;
+  font-size: 0.92rem;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.studio-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  font-size: 0.78rem;
+  font-weight: 750;
+  color: var(--text-muted);
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition-fast);
+}
+
+.studio-nav-btn.active,
+.studio-nav-btn:hover {
+  background: rgba(124, 58, 237, 0.08);
+  color: var(--primary);
+}
+
+.studio-main-body {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dash-trio-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.dash-stat-tile {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 18px;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* =========================================================
+   5. FEATURE COMPARISON (INTERACTIVE CARD MATRIX)
+   ========================================================= */
+.feat-comparison-deck {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.comp-deck-card {
+  padding: 40px;
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.comp-deck-card.traditional {
+  background: rgba(15, 23, 42, 0.02);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.comp-deck-card.cranial {
+  background: var(--card-bg);
+  border: 2px solid rgba(124, 58, 237, 0.3);
+  box-shadow: var(--shadow-xl);
+  position: relative;
+}
+
+.deck-tag-pill {
+  position: absolute;
+  top: -14px;
+  right: 28px;
+  background: linear-gradient(135deg, #7C3AED 0%, #3B82F6 100%);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 850;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+/* =========================================================
+   6. UPCOMING FEATURES (MASONRY-STYLE ROADMAP LABS)
+   ========================================================= */
+.upcoming-masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.upcoming-glass-card {
+  padding: 28px;
+  border-radius: 22px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.upcoming-glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+  border-color: rgba(124, 58, 237, 0.3);
+}
+
+/* =========================================================
+   7. FINAL CTA
+   ========================================================= */
+.feat-final-cta-container {
+  background: linear-gradient(135deg, #0F172A 0%, #1E1B4B 100%);
+  border-radius: 36px;
+  padding: 80px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.feat-cta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #c084fc;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.feat-cta-headline {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.035em;
+  max-width: 720px;
+  line-height: 1.15;
+}
+
+.feat-cta-desc {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  max-width: 580px;
+  line-height: 1.6;
+}
+
+.feat-cta-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 1024px) {
+  .span-8, .span-4, .span-6 {
+    grid-column: span 12;
+  }
+  .pipeline-nodes-bar {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .pipeline-nodes-bar::before {
+    display: none;
+  }
+  .pipeline-interactive-display {
+    grid-template-columns: 1fr;
+  }
+  .studio-dash-shell {
+    grid-template-columns: 1fr;
+  }
+  .feat-comparison-deck {
+    grid-template-columns: 1fr;
+  }
+  .upcoming-masonry-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .feat-hero-title {
+    font-size: 2.6rem;
+  }
+  .pipeline-nodes-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .dash-trio-metrics {
+    grid-template-columns: 1fr;
+  }
+  .upcoming-masonry-grid {
+    grid-template-columns: 1fr;
+  }
+  .bento-submetric-selector {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .feat-final-cta-container {
+    padding: 60px 24px;
+  }
+  .feat-cta-headline {
+    font-size: 2.2rem;
+  }
+}

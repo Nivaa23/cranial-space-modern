@@ -24,7 +24,7 @@ const Navbar = () => {
 
   const navItems = [
     { label: 'Product', href: '/product' },
-    { label: 'Features', href: '/#features' },
+    { label: 'Features', href: '/features' },
     { label: 'Community', href: '/#community' },
     { label: 'Mentorship', href: '/#mentorship' },
     { label: 'Resources', href: '/#resources' },
