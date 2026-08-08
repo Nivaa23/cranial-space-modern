@@ -300,15 +300,13 @@
   flex-direction: column;
   justify-content: space-between;
   box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-medium), box-shadow var(--transition-medium), border-color var(--transition-medium);
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
   position: relative;
-  overflow: hidden;
 }
 
 .bento-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-xl);
-  border-color: rgba(124, 58, 237, 0.3);
 }
 
 /* Bento Column Spans */
@@ -687,7 +685,6 @@
 .upcoming-glass-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
-  border-color: rgba(124, 58, 237, 0.3);
 }
 
 /* =========================================================

@@ -125,17 +125,38 @@
 
 /* Cranial Space Integration Overrides */
 .border-glow-card.bento-card,
-.border-glow-card.newsletter-card {
+.border-glow-card.newsletter-card,
+.border-glow-card.upcoming-glass-card,
+.border-glow-card.mentor-profile-card,
+.border-glow-card.challenge-arena-card,
+.border-glow-card.impact-tile {
   overflow: visible !important;
 }
 
 .border-glow-card.bento-card .border-glow-inner,
-.border-glow-card.newsletter-card .border-glow-inner {
+.border-glow-card.newsletter-card .border-glow-inner,
+.border-glow-card.upcoming-glass-card .border-glow-inner,
+.border-glow-card.mentor-profile-card .border-glow-inner,
+.border-glow-card.challenge-arena-card .border-glow-inner,
+.border-glow-card.impact-tile .border-glow-inner {
   overflow: visible !important;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.border-glow-card.bento-card:hover {
+.border-glow-card.bento-card .border-glow-inner {
+  justify-content: space-between;
+}
+
+.border-glow-card.upcoming-glass-card .border-glow-inner {
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.border-glow-card.bento-card:hover,
+.border-glow-card.upcoming-glass-card:hover {
   border-color: transparent !important;
 }

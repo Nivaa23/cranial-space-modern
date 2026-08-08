@@ -632,7 +632,7 @@
   border-radius: 9999px;
 }
 
-.mentor-book-btn {
+.card-mentor .mentor-book-btn {
   width: 100%;
   padding: 8px 0 !important;
   font-size: 0.75rem !important;

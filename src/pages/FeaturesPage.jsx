@@ -5,9 +5,13 @@ import {
   Briefcase, Eye, Flame, BarChart3, Globe, MousePointer, Maximize2
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import BorderGlow from '../components/BorderGlow';
 import '../styles/FeaturesPage.css';
 
 const FeaturesPage = () => {
+  const glowColors = ['#7C3AED', '#A855F7', '#3B82F6'];
+  const glowHSL = '258 89 60';
+
   // Hero Studio Canvas State
   const [heroTool, setHeroTool] = useState('inspect'); // 'inspect', 'heatmap', 'grid'
   
@@ -249,7 +253,16 @@ const FeaturesPage = () => {
         <div className="bento-grid-master">
           
           {/* Card 1: UX Score System (Span 8 - Hero Bento) */}
-          <div className="bento-card span-8">
+          <BorderGlow
+            className="bento-card span-8"
+            edgeSensitivity={30}
+            glowColor={glowHSL}
+            backgroundColor="var(--card-bg)"
+            borderRadius={26}
+            glowRadius={40}
+            glowIntensity={1.0}
+            colors={glowColors}
+          >
             <div>
               <div className="bento-top-row">
                 <div className="bento-icon-box purple"><Activity size={24} /></div>
@@ -302,10 +315,19 @@ const FeaturesPage = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </BorderGlow>
 
           {/* Card 2: AI-Powered Critique (Span 4 - Compact Vertical) */}
-          <div className="bento-card span-4">
+          <BorderGlow
+            className="bento-card span-4"
+            edgeSensitivity={30}
+            glowColor={glowHSL}
+            backgroundColor="var(--card-bg)"
+            borderRadius={26}
+            glowRadius={40}
+            glowIntensity={1.0}
+            colors={glowColors}
+          >
             <div>
               <div className="bento-top-row">
                 <div className="bento-icon-box blue"><Zap size={24} /></div>
@@ -327,10 +349,19 @@ const FeaturesPage = () => {
               </div>
               <p style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>Found 1 contrast violation (4.2:1 → 6.5:1) & verified 16px component padding.</p>
             </div>
-          </div>
+          </BorderGlow>
 
           {/* Card 3: Community Feedback Portal (Span 4) */}
-          <div className="bento-card span-4">
+          <BorderGlow
+            className="bento-card span-4"
+            edgeSensitivity={30}
+            glowColor={glowHSL}
+            backgroundColor="var(--card-bg)"
+            borderRadius={26}
+            glowRadius={40}
+            glowIntensity={1.0}
+            colors={glowColors}
+          >
             <div>
               <div className="bento-top-row">
                 <div className="bento-icon-box red"><Users size={24} /></div>
@@ -355,10 +386,19 @@ const FeaturesPage = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </BorderGlow>
 
           {/* Card 4: Portfolio Builder (Span 8) */}
-          <div className="bento-card span-8">
+          <BorderGlow
+            className="bento-card span-8"
+            edgeSensitivity={30}
+            glowColor={glowHSL}
+            backgroundColor="var(--card-bg)"
+            borderRadius={26}
+            glowRadius={40}
+            glowIntensity={1.0}
+            colors={glowColors}
+          >
             <div>
               <div className="bento-top-row">
                 <div className="bento-icon-box green"><Layers size={24} /></div>
@@ -386,10 +426,19 @@ const FeaturesPage = () => {
                 <span className="bento-pill-tag" style={{ background: 'rgba(59, 130, 246, 0.1)', color: '#3B82F6' }}>WCAG AAA</span>
               </div>
             </div>
-          </div>
+          </BorderGlow>
 
           {/* Card 5: Progress Tracking (Span 6) */}
-          <div className="bento-card span-6">
+          <BorderGlow
+            className="bento-card span-6"
+            edgeSensitivity={30}
+            glowColor={glowHSL}
+            backgroundColor="var(--card-bg)"
+            borderRadius={26}
+            glowRadius={40}
+            glowIntensity={1.0}
+            colors={glowColors}
+          >
             <div>
               <div className="bento-top-row">
                 <div className="bento-icon-box sky"><TrendingUp size={24} /></div>
@@ -414,10 +463,19 @@ const FeaturesPage = () => {
                 <div style={{ width: '84%', height: '100%', background: '#0EA5E9', borderRadius: '3px' }} />
               </div>
             </div>
-          </div>
+          </BorderGlow>
 
           {/* Card 6: Mentor Studio (Span 6) */}
-          <div className="bento-card span-6">
+          <BorderGlow
+            className="bento-card span-6"
+            edgeSensitivity={30}
+            glowColor={glowHSL}
+            backgroundColor="var(--card-bg)"
+            borderRadius={26}
+            glowRadius={40}
+            glowIntensity={1.0}
+            colors={glowColors}
+          >
             <div>
               <div className="bento-top-row">
                 <div className="bento-icon-box orange"><GraduationCap size={24} /></div>
@@ -442,10 +500,19 @@ const FeaturesPage = () => {
                 <span className="mentor-stamp">CRITIQUE READY</span>
               </div>
             </div>
-          </div>
+          </BorderGlow>
 
           {/* Card 7: Case Study Submission (Span 6) */}
-          <div className="bento-card span-6">
+          <BorderGlow
+            className="bento-card span-6"
+            edgeSensitivity={30}
+            glowColor={glowHSL}
+            backgroundColor="var(--card-bg)"
+            borderRadius={26}
+            glowRadius={40}
+            glowIntensity={1.0}
+            colors={glowColors}
+          >
             <div>
               <div className="bento-top-row">
                 <div className="bento-icon-box indigo"><FileText size={24} /></div>
@@ -472,10 +539,19 @@ const FeaturesPage = () => {
                 3. Checkout ✓
               </div>
             </div>
-          </div>
+          </BorderGlow>
 
           {/* Card 8: Challenges & Rewards (Span 6) */}
-          <div className="bento-card span-6">
+          <BorderGlow
+            className="bento-card span-6"
+            edgeSensitivity={30}
+            glowColor={glowHSL}
+            backgroundColor="var(--card-bg)"
+            borderRadius={26}
+            glowRadius={40}
+            glowIntensity={1.0}
+            colors={glowColors}
+          >
             <div>
               <div className="bento-top-row">
                 <div className="bento-icon-box pink"><Award size={24} /></div>
@@ -500,7 +576,7 @@ const FeaturesPage = () => {
                 <span className="mentor-stamp">RANK #4</span>
               </div>
             </div>
-          </div>
+          </BorderGlow>
 
         </div>
       </section>
@@ -717,7 +793,17 @@ const FeaturesPage = () => {
 
         <div className="upcoming-masonry-grid">
           {upcomingFeatures.map((feat) => (
-            <div key={feat.title} className="upcoming-glass-card">
+            <BorderGlow
+              key={feat.title}
+              className="upcoming-glass-card"
+              edgeSensitivity={30}
+              glowColor={glowHSL}
+              backgroundColor="var(--card-bg)"
+              borderRadius={22}
+              glowRadius={40}
+              glowIntensity={1.0}
+              colors={glowColors}
+            >
               <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
                 <div className="bento-icon-box purple" style={{ width: '38px', height: '38px' }}>
                   {feat.icon}
@@ -726,7 +812,7 @@ const FeaturesPage = () => {
               </div>
               <h3 style={{ fontSize: '1.15rem', fontWeight: 850 }}>{feat.title}</h3>
               <p style={{ fontSize: '0.84rem', lineHeight: 1.5, color: 'var(--text-muted)' }}>{feat.desc}</p>
-            </div>
+            </BorderGlow>
           ))}
         </div>
       </section>
