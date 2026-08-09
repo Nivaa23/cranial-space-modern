@@ -25,8 +25,8 @@ const Footer = () => {
         { label: 'Features', href: '#features' },
         { label: 'AI Reviews', href: '#ai-reviews' },
         { label: 'UX Score', href: '#ux-score' },
-        { label: 'Community', href: '#community' },
-        { label: 'Mentorship', href: '#mentorship' }
+        { label: 'Community', href: '/community' },
+        { label: 'Mentorship', href: '/mentorship' }
       ]
     },
     {
