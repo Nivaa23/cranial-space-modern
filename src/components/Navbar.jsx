@@ -28,7 +28,7 @@ const Navbar = () => {
     { label: 'Community', href: '/community' },
     { label: 'Mentorship', href: '/mentorship' },
     { label: 'Resources', href: '/resources' },
-    { label: 'Pricing', href: '/#pricing' }
+    { label: 'Pricing', href: '/pricing' }
   ];
 
   return (

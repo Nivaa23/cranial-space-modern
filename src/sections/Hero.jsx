@@ -62,24 +62,27 @@ const Hero = () => {
 
       {/* Trust Indicator Metrics Dashboard */}
       <motion.div className="hero-metrics-dashboard" variants={itemVariants}>
-        <span className="metrics-title">Platform Ecosystem Activity</span>
-        <div className="metrics-grid">
-          <div className="metric-item">
+        <div className="hero-metrics-header">
+          <span className="hero-metrics-pulse" />
+          <span className="metrics-title">Platform Ecosystem Activity</span>
+        </div>
+        <div className="hero-metrics-track">
+          <div className="hero-metric-item">
             <span className="metric-value">14,280+</span>
             <span className="metric-label">Designers Growing</span>
           </div>
-          <div className="metric-line-divider" />
-          <div className="metric-item">
+          <div className="hero-metric-divider" />
+          <div className="hero-metric-item">
             <span className="metric-value">1.4M+</span>
             <span className="metric-label">AI UX Audits Run</span>
           </div>
-          <div className="metric-line-divider" />
-          <div className="metric-item">
+          <div className="hero-metric-divider" />
+          <div className="hero-metric-item">
             <span className="metric-value">99.4%</span>
             <span className="metric-label">Review Satisfaction</span>
           </div>
-          <div className="metric-line-divider" />
-          <div className="metric-item">
+          <div className="hero-metric-divider" />
+          <div className="hero-metric-item">
             <span className="metric-value">Weekly</span>
             <span className="metric-label">Design Sprints</span>
           </div>

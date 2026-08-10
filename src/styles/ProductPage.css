@@ -1709,13 +1709,13 @@
   width: 100%;
 }
 
-.metrics-grid {
+.success-metrics-section .metrics-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
-.metric-item {
+.success-metrics-section .metric-item {
   padding: 40px 30px;
   border-radius: 24px;
   text-align: center;
@@ -1724,7 +1724,7 @@
   gap: 8px;
 }
 
-.metric-number {
+.success-metrics-section .metric-number {
   font-size: 2.5rem;
   font-weight: 950;
   letter-spacing: -0.03em;
@@ -1733,7 +1733,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-.metric-label {
+.success-metrics-section .metric-label {
   font-size: 0.85rem;
   font-weight: 750;
   color: var(--text-muted);
@@ -1828,7 +1828,7 @@
     grid-template-columns: 1fr;
     gap: 24px;
   }
-  .metrics-grid {
+  .success-metrics-section .metrics-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -1911,7 +1911,7 @@
   .benefit-row.reverse {
     direction: ltr;
   }
-  .metrics-grid {
+  .success-metrics-section .metrics-grid {
     grid-template-columns: 1fr;
   }
   .cta-headline {

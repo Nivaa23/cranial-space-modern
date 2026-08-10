@@ -7,6 +7,7 @@ import FeaturesPage from './pages/FeaturesPage';
 import CommunityPage from './pages/CommunityPage';
 import MentorshipPage from './pages/MentorshipPage';
 import ResourcesPage from './pages/ResourcesPage';
+import PricingPage from './pages/PricingPage';
 
 function App() {
   return (
@@ -26,6 +27,10 @@ function App() {
           <Route path="resource" element={<ResourcesPage />} />
           <Route path="blog" element={<ResourcesPage />} />
           <Route path="blogs" element={<ResourcesPage />} />
+          <Route path="pricing" element={<PricingPage />} />
+          <Route path="prices" element={<PricingPage />} />
+          <Route path="plans" element={<PricingPage />} />
+          <Route path="plan" element={<PricingPage />} />
         </Route>
       </Routes>
     </Router>

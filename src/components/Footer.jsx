@@ -22,11 +22,11 @@ const Footer = () => {
     {
       title: 'Product',
       links: [
-        { label: 'Features', href: '#features' },
-        { label: 'AI Reviews', href: '#ai-reviews' },
-        { label: 'UX Score', href: '#ux-score' },
+        { label: 'Features', href: '/features' },
+        { label: 'Pricing', href: '/pricing' },
         { label: 'Community', href: '/community' },
-        { label: 'Mentorship', href: '/mentorship' }
+        { label: 'Mentorship', href: '/mentorship' },
+        { label: 'Resources', href: '/resources' }
       ]
     },
     {
