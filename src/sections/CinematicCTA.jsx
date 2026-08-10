@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Sparkles, ArrowRight } from 'lucide-react';
 import Silk from '../components/Silk';
@@ -58,13 +59,13 @@ const CinematicCTA = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <button className="cta-btn cta-primary-glow">
+          <Link to="/signup" className="cta-btn cta-primary-glow">
             Join the Community
             <ArrowRight size={16} />
-          </button>
-          <button className="cta-btn cta-secondary-glass">
+          </Link>
+          <Link to="/product" className="cta-btn cta-secondary-glass">
             Explore the Platform
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>

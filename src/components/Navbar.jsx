@@ -69,11 +69,11 @@ const Navbar = () => {
 
         {/* Desktop Actions */}
         <div className="nav-actions">
-          <button className="btn-signin">Sign In</button>
-          <button className="btn btn-primary btn-nav-cta">
+          <Link to="/login" className="btn-signin">Sign In</Link>
+          <Link to="/signup" className="btn btn-primary btn-nav-cta">
             Join the Community
             <ArrowRight size={14} />
-          </button>
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -126,13 +126,21 @@ const Navbar = () => {
             </ul>
 
             <div className="mobile-menu-actions">
-              <button className="btn btn-secondary" onClick={() => setMobileMenuOpen(false)}>
+              <Link 
+                to="/login" 
+                className="btn btn-secondary" 
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 Sign In
-              </button>
-              <button className="btn btn-primary" onClick={() => setMobileMenuOpen(false)}>
+              </Link>
+              <Link 
+                to="/signup" 
+                className="btn btn-primary" 
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 Join the Community
                 <ArrowRight size={16} />
-              </button>
+              </Link>
             </div>
           </motion.div>
         )}

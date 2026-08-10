@@ -8,11 +8,21 @@ import CommunityPage from './pages/CommunityPage';
 import MentorshipPage from './pages/MentorshipPage';
 import ResourcesPage from './pages/ResourcesPage';
 import PricingPage from './pages/PricingPage';
+import LoginPage from './pages/auth/LoginPage';
+import SignUpPage from './pages/auth/SignUpPage';
 
 function App() {
   return (
     <Router>
       <Routes>
+        {/* Standalone Authentication Experience */}
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signin" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/register" element={<SignUpPage />} />
+        <Route path="/join" element={<SignUpPage />} />
+
+        {/* Public Marketing Website */}
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
           <Route path="product" element={<ProductPage />} />

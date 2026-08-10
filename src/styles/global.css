@@ -1,4 +1,5 @@
 @import './variables.css';
+@import './productVariables.css';
 
 /* Global Reset */
 *, *::before, *::after {

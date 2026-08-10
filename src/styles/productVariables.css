@@ -1,0 +1,40 @@
+/* ==========================================================================
+   CRANIAL SPACE — AUTHENTICATED PRODUCT BRAND KIT TOKENS
+   Dedicated dark UI token system for the authenticated product experience.
+   Separated from the marketing website tokens to maintain visual isolation.
+   ========================================================================== */
+
+:root,
+[data-theme="product"],
+.cranial-product-theme {
+  /* Primary Brand Action Colors */
+  --product-primary: #4F46E5;
+  --product-primary-hover: #4338CA;
+
+  /* Product Background & Surfaces */
+  --product-bg: #111827;
+  --product-sidebar: #1F2937;
+  --product-surface: #1F2937;
+  --product-surface-elevated: #273449;
+
+  /* Product Borders & Dividers */
+  --product-border: #374151;
+
+  /* Product Typography & Text */
+  --product-text-primary: #F9FAFB;
+  --product-text-secondary: #D1D5DB;
+  --product-text-muted: #9CA3AF;
+
+  /* Product Semantic Status Colors */
+  --product-success: #22C55E;
+  --product-warning: #F59E0B;
+  --product-error: #EF4444;
+  --product-info: #38BDF8;
+
+  /* Product Elevation Shadows & Focus Indicators */
+  --product-focus-ring: 0 0 0 2px rgba(79, 70, 229, 0.4);
+  --product-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --product-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.35), 0 2px 4px -2px rgba(0, 0, 0, 0.25);
+  --product-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.45), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+  --product-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+}

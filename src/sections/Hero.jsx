@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Play } from 'lucide-react';
 import { motion } from 'framer-motion';
 import '../styles/Hero.css';
@@ -50,14 +51,14 @@ const Hero = () => {
 
       {/* Hero Actions */}
       <motion.div className="hero-actions" variants={itemVariants}>
-        <button className="btn btn-primary">
+        <Link to="/signup" className="btn btn-primary">
           Join the Ecosystem
           <ArrowRight size={16} />
-        </button>
-        <button className="btn btn-secondary">
+        </Link>
+        <a href="#demo" className="btn btn-secondary">
           <Play size={12} fill="currentColor" style={{ marginRight: '2px' }} />
           Inspect Sandbox
-        </button>
+        </a>
       </motion.div>
 
       {/* Trust Indicator Metrics Dashboard */}
