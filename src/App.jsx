@@ -10,6 +10,8 @@ import ResourcesPage from './pages/ResourcesPage';
 import PricingPage from './pages/PricingPage';
 import LoginPage from './pages/auth/LoginPage';
 import SignUpPage from './pages/auth/SignUpPage';
+import OnboardingPage from './pages/onboarding/OnboardingPage';
+import DashboardPage from './pages/dashboard/DashboardPage';
 
 function App() {
   return (
@@ -21,6 +23,10 @@ function App() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/register" element={<SignUpPage />} />
         <Route path="/join" element={<SignUpPage />} />
+
+        {/* Authenticated Onboarding & Product Workspace */}
+        <Route path="/onboarding" element={<OnboardingPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
 
         {/* Public Marketing Website */}
         <Route path="/" element={<MainLayout />}>

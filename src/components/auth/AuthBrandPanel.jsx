@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles, ArrowUpRight, Zap, Users, Trophy, Award } from 'lucide-react';
+import DesignIntelligenceGrid from './DesignIntelligenceGrid';
 
 const AuthBrandPanel = () => {
   return (
     <div className="auth-brand-panel">
       <div className="auth-ambient-glow" />
       <div className="auth-ambient-glow-bottom" />
-      <div className="auth-grid-overlay" />
+      <DesignIntelligenceGrid />
 
       {/* Header Logo */}
       <div className="auth-brand-header">

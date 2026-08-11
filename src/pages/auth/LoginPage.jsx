@@ -51,7 +51,12 @@ const LoginPage = () => {
     // Simulate brief authentication verification
     setTimeout(() => {
       setIsLoading(false);
-      navigate('/dashboard');
+      const isCompleted = localStorage.getItem('cranial_onboarding_completed') === 'true';
+      if (isCompleted) {
+        navigate('/dashboard');
+      } else {
+        navigate('/onboarding');
+      }
     }, 900);
   };
 
@@ -59,7 +64,12 @@ const LoginPage = () => {
     setSocialLoading(provider);
     setTimeout(() => {
       setSocialLoading(null);
-      navigate('/dashboard');
+      const isCompleted = localStorage.getItem('cranial_onboarding_completed') === 'true';
+      if (isCompleted) {
+        navigate('/dashboard');
+      } else {
+        navigate('/onboarding');
+      }
     }, 800);
   };
 

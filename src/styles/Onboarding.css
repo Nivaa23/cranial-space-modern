@@ -1,0 +1,980 @@
+/* ==========================================================================
+   CRANIAL SPACE — ONBOARDING EXPERIENCE
+   Structured, minimalist, premium designer onboarding shell & steps.
+   ========================================================================== */
+
+.onboarding-page-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--product-bg);
+  color: var(--product-text-primary);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+  font-family: var(--font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+}
+
+/* Atmospheric Ambient Background */
+.onboarding-ambient-glow-top {
+  position: fixed;
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, rgba(56, 189, 248, 0.05) 50%, transparent 75%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.onboarding-ambient-glow-bottom {
+  position: fixed;
+  bottom: -200px;
+  right: -100px;
+  width: 600px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, transparent 70%);
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.onboarding-grid-bg {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(55, 65, 81, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(55, 65, 81, 0.12) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.onboarding-header {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.onboarding-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.onboarding-logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--product-text-primary);
+  font-weight: 850;
+  font-size: 1.12rem;
+  letter-spacing: -0.03em;
+  transition: opacity 0.15s ease;
+}
+
+.onboarding-logo-link:hover {
+  opacity: 0.9;
+}
+
+.onboarding-logo-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--product-primary) 0%, #7c3aed 100%);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 900;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+}
+
+.onboarding-logo-text {
+  font-weight: 850;
+  letter-spacing: -0.03em;
+}
+
+.onboarding-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--product-info);
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.onboarding-badge-icon {
+  color: var(--product-info);
+}
+
+.onboarding-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-onboarding-skip-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: var(--product-text-muted);
+  font-size: 0.82rem;
+  font-weight: 650;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.btn-onboarding-skip-all:hover {
+  color: var(--product-text-primary);
+  background: rgba(55, 65, 81, 0.4);
+}
+
+/* ==========================================================================
+   MAIN CONTAINER & CARD SHELL
+   ========================================================================== */
+.onboarding-main-container {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 710px;
+  margin: 12px auto 64px auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Progress Indicator */
+.onboarding-progress-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.onboarding-progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.onboarding-step-count {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--product-text-secondary);
+}
+
+.step-current {
+  color: var(--product-text-primary);
+  font-weight: 800;
+}
+
+.step-divider {
+  color: var(--product-text-muted);
+}
+
+.step-total {
+  color: var(--product-text-muted);
+}
+
+.step-title-separator {
+  color: rgba(156, 163, 175, 0.4);
+  margin: 0 2px;
+}
+
+.step-label-text {
+  color: #818cf8;
+  font-weight: 750;
+}
+
+.onboarding-percentage-badge {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.72rem;
+  font-weight: 750;
+  color: var(--product-text-muted);
+}
+
+.onboarding-progress-track {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  background: rgba(31, 41, 55, 0.9);
+  border: 1px solid rgba(55, 65, 81, 0.7);
+  border-radius: 9999px;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+}
+
+.onboarding-progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #4f46e5 0%, #818cf8 100%);
+  border-radius: 9999px;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.45);
+}
+
+.onboarding-step-markers {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1px;
+  pointer-events: none;
+}
+
+.onboarding-step-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1f2937;
+  border: 1.5px solid #4b5563;
+  transition: all 0.25s ease;
+  z-index: 2;
+}
+
+.onboarding-step-dot.dot-passed {
+  background: #818cf8;
+  border-color: #6366f1;
+}
+
+.onboarding-step-dot.dot-current {
+  background: #ffffff;
+  border-color: #4f46e5;
+  box-shadow: 0 0 8px #818cf8;
+  transform: scale(1.2);
+}
+
+/* Card Shell */
+.onboarding-card {
+  background: rgba(26, 34, 48, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(55, 65, 81, 0.8);
+  border-radius: 24px;
+  padding: 44px 48px;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+   STEP 1: WELCOME STEP STYLES
+   ========================================================================== */
+.welcome-step-container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.welcome-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.76rem;
+  font-weight: 750;
+  color: var(--product-text-secondary);
+  background: rgba(31, 41, 55, 0.9);
+  border: 1px solid var(--product-border);
+  padding: 5px 12px;
+  border-radius: 9999px;
+  width: fit-content;
+}
+
+.welcome-kicker-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--product-primary);
+  box-shadow: 0 0 6px var(--product-primary);
+}
+
+.welcome-kicker-icon {
+  color: #818cf8;
+}
+
+.welcome-header-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.welcome-title {
+  font-size: clamp(1.85rem, 3.2vw, 2.35rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1.2;
+  color: var(--product-text-primary);
+}
+
+.welcome-gradient-accent {
+  background: linear-gradient(135deg, #818cf8 0%, #c084fc 60%, #38bdf8 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.welcome-subtitle {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--product-text-secondary);
+  font-weight: 450;
+}
+
+/* Value Proposition Pillars Grid */
+.welcome-pillars-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.welcome-pillar-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: rgba(17, 24, 39, 0.6);
+  border: 1px solid rgba(55, 65, 81, 0.7);
+  border-radius: 16px;
+  padding: 16px 18px;
+  transition: all 0.2s ease;
+}
+
+.welcome-pillar-card:hover {
+  background: rgba(31, 41, 55, 0.55);
+  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateY(-1px);
+}
+
+.welcome-pillar-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.welcome-pillar-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.welcome-pillar-title {
+  font-size: 0.95rem;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+  color: var(--product-text-primary);
+}
+
+.welcome-pillar-desc {
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: var(--product-text-muted);
+}
+
+/* Metadata Strip */
+.welcome-meta-strip {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background: rgba(17, 24, 39, 0.4);
+  border: 1px dashed rgba(55, 65, 81, 0.7);
+  border-radius: 12px;
+  font-size: 0.8rem;
+  color: var(--product-text-secondary);
+}
+
+.welcome-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.welcome-meta-icon {
+  color: #818cf8;
+  flex-shrink: 0;
+}
+
+.welcome-meta-divider {
+  width: 1px;
+  height: 16px;
+  background: rgba(55, 65, 81, 0.8);
+}
+
+/* Navigation Actions Row */
+.onboarding-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(55, 65, 81, 0.5);
+  margin-top: 8px;
+}
+
+.btn-onboarding-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--product-primary);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+  text-decoration: none;
+}
+
+.btn-onboarding-primary:hover {
+  background: var(--product-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.45);
+}
+
+.btn-onboarding-primary:active {
+  transform: translateY(0);
+}
+
+.btn-onboarding-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(31, 41, 55, 0.8);
+  border: 1px solid var(--product-border);
+  border-radius: 12px;
+  color: var(--product-text-secondary);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.btn-onboarding-secondary:hover {
+  background: var(--product-surface-elevated);
+  color: var(--product-text-primary);
+  border-color: rgba(79, 70, 229, 0.3);
+}
+
+.btn-onboarding-secondary:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   STEP 2: DESIGN EXPERIENCE STYLES
+   ========================================================================== */
+.experience-step-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.step-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.step-section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(55, 65, 81, 0.4);
+  padding-bottom: 8px;
+}
+
+.step-section-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--product-text-primary);
+  letter-spacing: -0.015em;
+}
+
+.step-section-hint {
+  font-size: 0.76rem;
+  font-weight: 650;
+  color: var(--product-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Role Selection Grid */
+.role-selection-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.role-option-card {
+  background: rgba(17, 24, 39, 0.6);
+  border: 1px solid rgba(55, 65, 81, 0.7);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  width: 100%;
+}
+
+.role-option-card:hover {
+  background: rgba(31, 41, 55, 0.6);
+  border-color: rgba(99, 102, 241, 0.45);
+  transform: translateY(-1px);
+}
+
+.role-option-card.role-card-selected {
+  background: rgba(79, 70, 229, 0.12);
+  border-color: #6366f1;
+  box-shadow: 0 0 0 1px #6366f1, 0 4px 14px rgba(79, 70, 229, 0.25);
+}
+
+.role-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.role-card-icon-box {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: rgba(31, 41, 55, 0.8);
+  border: 1px solid rgba(55, 65, 81, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--product-text-secondary);
+  transition: all 0.18s ease;
+}
+
+.role-card-icon-box.icon-box-active {
+  background: rgba(79, 70, 229, 0.25);
+  border-color: rgba(129, 140, 248, 0.5);
+  color: #c084fc;
+}
+
+.role-radio-indicator {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(156, 163, 175, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.18s ease;
+  color: #ffffff;
+}
+
+.role-radio-indicator.radio-active {
+  border-color: #6366f1;
+  background: #6366f1;
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.6);
+}
+
+.role-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.role-card-label {
+  font-size: 0.92rem;
+  font-weight: 750;
+  color: var(--product-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.role-card-desc {
+  font-size: 0.77rem;
+  line-height: 1.35;
+  color: var(--product-text-muted);
+}
+
+/* Custom Role Input */
+.custom-role-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+  animation: customInputFade 0.25s ease;
+}
+
+@keyframes customInputFade {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.custom-role-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--product-text-secondary);
+}
+
+.custom-role-input {
+  width: 100%;
+  height: 42px;
+  background: rgba(17, 24, 39, 0.8);
+  border: 1px solid rgba(99, 102, 241, 0.45);
+  border-radius: 10px;
+  padding: 0 14px;
+  font-family: inherit;
+  font-size: 0.88rem;
+  color: var(--product-text-primary);
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.custom-role-input:focus {
+  border-color: #818cf8;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.35);
+  background: rgba(26, 34, 48, 0.9);
+}
+
+.custom-role-input::placeholder {
+  color: var(--product-text-muted);
+  font-weight: 450;
+}
+
+/* Experience Level Selection List */
+.experience-selection-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.experience-option-pill {
+  background: rgba(17, 24, 39, 0.6);
+  border: 1px solid rgba(55, 65, 81, 0.7);
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  text-align: left;
+}
+
+.experience-option-pill:hover {
+  background: rgba(31, 41, 55, 0.6);
+  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateX(2px);
+}
+
+.experience-option-pill.exp-pill-selected {
+  background: rgba(79, 70, 229, 0.12);
+  border-color: #6366f1;
+  box-shadow: 0 0 0 1px #6366f1, 0 3px 12px rgba(79, 70, 229, 0.2);
+}
+
+.exp-pill-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.exp-radio-indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(156, 163, 175, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.18s ease;
+}
+
+.exp-radio-indicator.radio-active {
+  border-color: #6366f1;
+  background: rgba(79, 70, 229, 0.3);
+}
+
+.radio-inner-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 4px #818cf8;
+}
+
+.exp-pill-label {
+  font-size: 0.9rem;
+  font-weight: 750;
+  color: var(--product-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.exp-pill-subtitle {
+  font-size: 0.78rem;
+  color: var(--product-text-muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Button Disabled State */
+.btn-onboarding-primary.btn-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ==========================================================================
+   STEP 3: AREAS OF INTEREST STYLES
+   ========================================================================== */
+.interests-step-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.interests-selection-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+}
+
+.interest-card {
+  background: rgba(17, 24, 39, 0.6);
+  border: 1px solid rgba(55, 65, 81, 0.7);
+  border-radius: 12px;
+  padding: 11px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: left;
+  width: 100%;
+}
+
+.interest-card:hover {
+  background: rgba(31, 41, 55, 0.6);
+  border-color: rgba(99, 102, 241, 0.45);
+  transform: translateY(-1px);
+}
+
+.interest-card.interest-card-selected {
+  background: rgba(79, 70, 229, 0.12);
+  border-color: #6366f1;
+  box-shadow: 0 0 0 1px #6366f1, 0 3px 12px rgba(79, 70, 229, 0.2);
+}
+
+.interest-card-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.interest-icon-box {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  background: rgba(31, 41, 55, 0.8);
+  border: 1px solid rgba(55, 65, 81, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--product-text-secondary);
+  flex-shrink: 0;
+  transition: all 0.18s ease;
+}
+
+.interest-icon-box.icon-box-active {
+  background: rgba(79, 70, 229, 0.25);
+  border-color: rgba(129, 140, 248, 0.5);
+  color: #c084fc;
+}
+
+.interest-card-label {
+  font-size: 0.82rem;
+  font-weight: 750;
+  color: var(--product-text-primary);
+  letter-spacing: -0.01em;
+  white-space: normal;
+  line-height: 1.25;
+}
+
+.interest-check-indicator {
+  width: 17px;
+  height: 17px;
+  border-radius: 5px;
+  border: 1.5px solid rgba(156, 163, 175, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.18s ease;
+  color: #ffffff;
+}
+
+.interest-check-indicator.indicator-active {
+  background: #6366f1;
+  border-color: #6366f1;
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.6);
+}
+
+/* Placeholder Steps for next stages */
+.placeholder-step {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.placeholder-box {
+  background: rgba(17, 24, 39, 0.6);
+  border: 1px dashed rgba(79, 70, 229, 0.4);
+  border-radius: 14px;
+  padding: 32px;
+  text-align: center;
+  color: var(--product-text-muted);
+  font-size: 0.88rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (TABLET & MOBILE)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .onboarding-header {
+    padding: 20px 20px;
+  }
+
+  .onboarding-main-container {
+    padding: 0 16px;
+    margin-bottom: 48px;
+  }
+
+  .onboarding-card {
+    padding: 32px 24px;
+    border-radius: 20px;
+  }
+
+  .interests-selection-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .welcome-title {
+    font-size: 1.75rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 0.94rem;
+  }
+
+  .welcome-meta-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .welcome-meta-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .role-selection-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-option-pill {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 12px 14px;
+  }
+
+  .exp-pill-subtitle {
+    padding-left: 28px;
+    font-size: 0.74rem;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 520px) {
+  .onboarding-header {
+    padding: 16px 16px;
+  }
+
+  .onboarding-badge {
+    display: none; /* Keep clean on small mobile headers */
+  }
+
+  .interests-selection-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .onboarding-actions-row {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .btn-onboarding-primary,
+  .btn-onboarding-secondary {
+    width: 100%;
+  }
+
+  .welcome-pillar-card {
+    padding: 14px 14px;
+  }
+}
