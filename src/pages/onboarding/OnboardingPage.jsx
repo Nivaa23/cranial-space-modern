@@ -5,6 +5,9 @@ import OnboardingProgress from '../../components/onboarding/OnboardingProgress';
 import WelcomeStep from '../../components/onboarding/steps/WelcomeStep';
 import ExperienceStep from '../../components/onboarding/steps/ExperienceStep';
 import InterestsStep from '../../components/onboarding/steps/InterestsStep';
+import GoalsStep from '../../components/onboarding/steps/GoalsStep';
+import ExperienceLevelStep from '../../components/onboarding/steps/ExperienceLevelStep';
+import ProfileSummaryStep from '../../components/onboarding/steps/ProfileSummaryStep';
 import '../../styles/Onboarding.css';
 
 const OnboardingContent = () => {
@@ -18,6 +21,12 @@ const OnboardingContent = () => {
         return <ExperienceStep />;
       case 3:
         return <InterestsStep />;
+      case 4:
+        return <GoalsStep />;
+      case 5:
+        return <ExperienceLevelStep />;
+      case 6:
+        return <ProfileSummaryStep />;
       default:
         return (
           <div className="onboarding-step-content placeholder-step">

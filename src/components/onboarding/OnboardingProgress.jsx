@@ -2,11 +2,11 @@ import React from 'react';
 
 const STEP_LABELS = [
   'Welcome',
-  'Experience',
+  'Role',
   'Interests',
   'Goals',
-  'Profile',
-  'Summary'
+  'Experience',
+  'Profile'
 ];
 
 const OnboardingProgress = ({ currentStep, totalSteps = 6 }) => {

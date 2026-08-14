@@ -56,6 +56,19 @@ export const OnboardingProvider = ({ children }) => {
     }
   }, [data]);
 
+  // Sync state from localStorage on mount
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY_DATA);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        setData(prev => ({ ...prev, ...parsed }));
+      }
+    } catch (e) {
+      console.warn('Could not parse onboarding data on mount', e);
+    }
+  }, []);
+
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_KEY_STEP, currentStep.toString());

@@ -66,6 +66,8 @@ const SignUpPage = () => {
     // Simulate brief account generation & routing to onboarding
     setTimeout(() => {
       setIsLoading(false);
+      const initialData = { name: formData.fullName };
+      localStorage.setItem('cranial_onboarding_data', JSON.stringify(initialData));
       navigate('/onboarding');
     }, 900);
   };
@@ -74,6 +76,8 @@ const SignUpPage = () => {
     setSocialLoading(provider);
     setTimeout(() => {
       setSocialLoading(null);
+      const initialData = { name: 'Alex Mercer' };
+      localStorage.setItem('cranial_onboarding_data', JSON.stringify(initialData));
       navigate('/onboarding');
     }, 800);
   };
